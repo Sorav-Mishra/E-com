@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api/v1": {
+      "/api": {
         target: "https://e-com-bhtc.onrender.com",
         changeOrigin: true,
       },

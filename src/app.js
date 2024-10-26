@@ -30,4 +30,9 @@ app.use("/api/v1/cart", cartRouter);
 app.use("/api/v1/orders", orderRouter);
 app.use("/api/v1/address", addressRouter);
 
+// Root route for testing
+app.get("/", (req, res) => {
+  res.send("API is running");
+});
+
 export { app };
