@@ -79,51 +79,6 @@ const CartPage = () => {
     }
   };
 
-  // const removeFromCart = async (productId) => {
-  //   if (!productId) return;
-  //   const token = localStorage.getItem("accessToken");
-  //   try {
-  //     await axios.delete(
-  //       `http://localhost:8000/api/v1/cart/remove/${productId}`,
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       }
-  //     );
-  //     setCartItems(cartItems.filter((item) => item.product?._id !== productId));
-  //   } catch (error) {
-  //     console.error("Error removing item from cart:", error);
-  //     alert("Failed to remove item.");
-  //   }
-  // };
-
-  // const updateQuantity = async (productId, newQuantity) => {
-  //   if (newQuantity < 1) return;
-  //   const token = localStorage.getItem("accessToken");
-  //
-  //     await axios.put(
-  //       `http://localhost:8000/api/v1/cart/update/${productId}`,
-  //       { quantity: newQuantity },
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       }
-  //     );
-  //     setCartItems(
-  //       cartItems.map((item) =>
-  //         item.product._id === productId
-  //           ? { ...item, quantity: newQuantity }
-  //           : item
-  //       )
-  //     );
-  //   } catch (error) {
-  //     console.error("Error updating quantity:", error);
-  //     alert("Failed to update quantity.");
-  //   }
-  // };
-
   const removeFromCart = async (productId) => {
     const token = localStorage.getItem("accessToken");
     try {
