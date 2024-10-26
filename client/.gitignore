@@ -1,0 +1,46 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependency directories
+node_modules
+
+# Build directories
+dist
+dist-ssr
+
+# Environment variables
+*.local
+.env
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Optional: Temporary files/folders
+tmp/
+temp/
+
+# Optional: Lock files (depending on package manager)
+package-lock.json
+pnpm-lock.yaml
+
+# Optional: Test coverage
+coverage/
+
+# Optional: Docker files
+.dockerignore
+Dockerfile
+docker-compose.yml
