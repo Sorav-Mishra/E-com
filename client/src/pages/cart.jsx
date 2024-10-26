@@ -101,7 +101,7 @@ const CartPage = () => {
   // const updateQuantity = async (productId, newQuantity) => {
   //   if (newQuantity < 1) return;
   //   const token = localStorage.getItem("accessToken");
-  //   try {
+  //
   //     await axios.put(
   //       `http://localhost:8000/api/v1/cart/update/${productId}`,
   //       { quantity: newQuantity },
