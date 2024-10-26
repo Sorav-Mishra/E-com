@@ -13,7 +13,7 @@ import CreateProductPage from "./pages/createProduct";
 import CartPage from "./pages/cart";
 import UserAuthPage from "./pages/signup";
 import UserProfile from "./pages/profile";
-import "./styles/app.css";
+//import "./styles/app.css";
 import OrderSummary from "./pages/order";
 import AddressPage from "./pages/addressPage";
 
