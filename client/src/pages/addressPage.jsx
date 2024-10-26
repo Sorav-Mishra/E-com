@@ -31,7 +31,7 @@ const AddressPage = () => {
   const fetchAddresses = async (accessToken) => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/v1/address/get",
+        `${import.meta.env.VITE_API_BASE_URL}/address/get`,
         {
           headers: { Authorization: `Bearer ${accessToken}` },
         }
@@ -58,14 +58,16 @@ const AddressPage = () => {
     try {
       if (editMode) {
         await axios.put(
-          `http://localhost:8000/api/v1/address/edit/${selectedAddressId}`,
+          `${
+            import.meta.env.VITE_API_BASE_URL
+          }/address/edit/${selectedAddressId}`,
           address,
           { headers: { Authorization: `Bearer ${accessToken}` } }
         );
         alert("Address updated successfully");
       } else {
         await axios.post(
-          "http://localhost:8000/api/v1/address/addAddress",
+          `${import.meta.env.VITE_API_BASE_URL}/address/addAddress`,
           address,
           { headers: { Authorization: `Bearer ${accessToken}` } }
         );
@@ -102,7 +104,7 @@ const AddressPage = () => {
     if (window.confirm("Are you sure you want to delete this address?")) {
       try {
         await axios.delete(
-          `http://localhost:8000/api/v1/address/delete/${addressId}`,
+          `${import.meta.env.VITE_API_BASE_URL}/address/delete/${addressId}`,
           { headers: { Authorization: `Bearer ${accessToken}` } }
         );
         alert("Address deleted successfully");

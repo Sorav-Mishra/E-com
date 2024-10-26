@@ -18,7 +18,7 @@ const OrderSummary = () => {
         }
 
         const response = await axios.get(
-          "http://localhost:8000/api/v1/orders/",
+          `${import.meta.env.VITE_API_BASE_URL}/orders/`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

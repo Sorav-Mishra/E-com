@@ -23,18 +23,24 @@ const UserProfile = () => {
           return;
         }
 
-        const profileResponse = await axios.get("/api/v1/users/profile", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const profileResponse = await axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}/users/profile`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setUser(profileResponse.data);
 
-        const addressResponse = await axios.get("/api/v1/address/get", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const addressResponse = await axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}/address/get`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setAddresses(addressResponse.data.addresses);
       } catch (error) {
         console.error("Error fetching data", error);
@@ -63,12 +69,16 @@ const UserProfile = () => {
 
     try {
       const token = localStorage.getItem("accessToken");
-      await axios.put("/api/v1/users/profile", formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      await axios.put(
+        `${import.meta.env.VITE_API_BASE_URL}/users/profile`,
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       setIsEditing(false);
     } catch (error) {
       console.error("Error updating profile", error);

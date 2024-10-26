@@ -16,7 +16,7 @@ const ProductPage = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/v1/getProductById/${id}`
+          `${import.meta.env.VITE_API_BASE_URL}/getProductById/${id}`
         );
         const productData = response.data.productDetail;
         setProduct(productData);
@@ -59,7 +59,7 @@ const ProductPage = () => {
 
       // Proceed with adding to cart
       const response = await axios.post(
-        "http://localhost:8000/api/v1/cart/add",
+        `${import.meta.env.VITE_API_BASE_URL}/cart/add`,
         {
           productId: product._id,
           quantity: 1,
