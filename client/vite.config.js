@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": {
+      "/api/v1": {
         target: "https://e-com-cwe4.onrender.com",
         changeOrigin: true,
       },
