@@ -16,7 +16,7 @@ const router = express.Router();
 router.route("/create").post(authenticateToken, createOrder);
 
 router.route("/").get(authenticateToken, getUserOrders);
-router.patch("/orders/:orderId/cancel", authenticateToken, cancelOrder);
+router.patch("/:orderId/cancel", authenticateToken, cancelOrder);
 
 // // Admin routes
 // router.route("/").get(authenticateToken, getOrderDetails);
