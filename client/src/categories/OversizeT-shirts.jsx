@@ -54,7 +54,7 @@ const OversizeT_shirts = () => {
                   alt={product.name}
                   className="w-full object-cover h-auto transform transition-transform duration-300 hover:scale-110"
                 />
-
+                SAVE {product.discount + "%"}
                 {/* Product Details */}
                 <h2 className="mt-4 text-lg font-semibold text-gray-900">
                   {product.name}
@@ -70,7 +70,6 @@ const OversizeT_shirts = () => {
                 <span className="text-orange-500 text-sm font-semibold">
                   SAVE {product.discount + "%"}
                 </span>
-
                 {/* Size Options */}
                 <div className="flex mt-4 space-x-2">
                   {["S", "M", "L", "XL"].map((size) => (

@@ -61,4 +61,36 @@ const getUserOrders = async (req, res) => {
   }
 };
 
-export { createOrder, getUserOrders };
+// Cancel Order
+const cancelOrder = async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const { orderId } = req.params;
+
+    // Find the order
+    const order = await Order.findOne({ _id: orderId, user: userId });
+    if (!order) {
+      return res.status(404).json({ message: "Order not found" });
+    }
+
+    // Check if order can be canceled (e.g., not already delivered or canceled)
+    if (order.status === "delivered") {
+      return res
+        .status(400)
+        .json({ message: "Order already delivered, cannot be canceled" });
+    }
+    if (order.status === "canceled") {
+      return res.status(400).json({ message: "Order is already canceled" });
+    }
+
+    // Update the order status to canceled
+    order.status = "canceled";
+    await order.save();
+
+    res.status(200).json({ message: "Order canceled successfully", order });
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+export { createOrder, getUserOrders, cancelOrder };

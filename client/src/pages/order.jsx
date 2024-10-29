@@ -36,6 +36,28 @@ const OrderSummary = () => {
     fetchOrders();
   }, []);
 
+  const cancelOrder = async (orderId) => {
+    try {
+      const token = localStorage.getItem("accessToken");
+      await axios.patch(
+        `${import.meta.env.VITE_API_BASE_URL}/orders/${orderId}/cancel`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setOrders((prevOrders) =>
+        prevOrders.map((order) =>
+          order._id === orderId ? { ...order, status: "canceled" } : order
+        )
+      );
+    } catch (error) {
+      setError("Failed to cancel the order.", error);
+    }
+  };
+
   const getTrackingSteps = (status) => {
     const steps = [
       { label: "Order Placed", reached: status !== "Pending" },
@@ -150,6 +172,16 @@ const OrderSummary = () => {
                 ))}
               </div>
             </div>
+
+            {/* Cancel Order Button */}
+            {order.status !== "canceled" && order.status !== "delivered" && (
+              <button
+                onClick={() => cancelOrder(order._id)}
+                className="mt-4 px-4 py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600"
+              >
+                Cancel Order
+              </button>
+            )}
           </div>
         ))}
       </div>

@@ -94,6 +94,10 @@ const UserProfile = () => {
     navigate("/address");
   };
 
+  const handleMyOrders = () => {
+    navigate("/orders");
+  };
+
   return (
     <div className="max-w-lg mx-auto p-8 bg-gray-50 shadow-lg rounded-xl md:p-10 lg:p-12">
       <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
@@ -173,6 +177,7 @@ const UserProfile = () => {
             ))}
           </ul>
         )}
+
         <button
           className="mt-6 px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
           onClick={handleManageAddress}
@@ -180,6 +185,13 @@ const UserProfile = () => {
           Manage Addresses
         </button>
       </div>
+
+      <button
+        className="mt-6 px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+        onClick={handleMyOrders}
+      >
+        My Orders
+      </button>
 
       <div className="mt-8 flex justify-between items-center space-x-4">
         {!isEditing ? (

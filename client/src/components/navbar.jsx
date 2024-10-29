@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/Logo.avif";
 import { MdPerson2 } from "react-icons/md";
-import { TiHeartFullOutline } from "react-icons/ti";
+//import { TiHeartFullOutline } from "react-icons/ti";
 import { FaSearch, FaShoppingCart, FaBars } from "react-icons/fa";
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -28,10 +28,14 @@ const Header = () => {
 
   return (
     <>
-      <div className="h-6 text-center text-gray-900 bg-slate-100 text-sm">
+      {/* <div className="h-6 text-center text-gray-900 bg-slate-100 text-sm">
+        India's trusted brand
+      </div> */}
+      <div className="h-6 text-center text-gray-900 bg-slate-100 text-sm sticky top-0 z-10">
         India's trusted brand
       </div>
-      <header className="h-20 shadow-md flex items-center justify-between px-8">
+
+      <header className="h-20 shadow-md bg-white flex items-center justify-between px-8 sticky top-0">
         {/* Mobile View: Hamburger Menu, Search, and Icons */}
         <div className="flex items-center gap-4 lg:hidden">
           <FaBars
@@ -56,9 +60,9 @@ const Header = () => {
           <Link to="/register">
             <MdPerson2 className=" text-gray-900 text-[25px]" />
           </Link>
-          <Link to="/wishlist">
+          {/* <Link to="/wishlist">
             <TiHeartFullOutline className=" text-gray-900 text-[25px]" />
-          </Link>
+          </Link> */}
           <Link to="/cart">
             <FaShoppingCart className=" text-gray-900 text-[25px]" />
           </Link>

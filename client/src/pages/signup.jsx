@@ -64,7 +64,7 @@ const UserAuthPage = () => {
         localStorage.setItem("refreshToken", data.refreshToken);
       }
 
-      alert(data.message);
+      window.location.reload();
       navigate("/Profile");
     } catch (err) {
       setError(err.message);

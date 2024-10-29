@@ -16,6 +16,7 @@ import UserProfile from "./pages/profile";
 //import "./styles/app.css";
 import OrderSummary from "./pages/order";
 import AddressPage from "./pages/addressPage";
+import AllProductPage from "./categories/allProduct";
 
 function App() {
   const isAuthenticated = !!localStorage.getItem("accessToken");
@@ -24,8 +25,10 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
+        <Route path="/allproducts" element={<AllProductPage />} />
         <Route path="/addProduct" element={<CreateProductPage />} />
         <Route path="/" element={<HeroSection />} />
+
         <Route path="/cart" element={<CartPage />} />
         <Route path="/orders" element={<OrderSummary />} />
         <Route path="/Oversize T-shirts" element={<OversizeT_shirts />} />

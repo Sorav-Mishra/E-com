@@ -229,7 +229,10 @@ const ProductPage = () => {
 
           {/* Buttons */}
           <div className="flex flex-col md:flex-row gap-4">
-            <button className="w-full bg-black text-white py-3 rounded-md hover:bg-gray-800">
+            <button
+              className="w-full bg-black text-white py-3 rounded-md hover:bg-gray-800"
+              onClick={() => addToCart(product)}
+            >
               Buy Now
             </button>
             <button
