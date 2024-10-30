@@ -162,6 +162,10 @@ const verifyPayment = async (req, res) => {
     .digest("hex");
 
   if (generatedSignature === razorpay_signature) {
+    await Order.findOneAndUpdate(
+      { razorpayOrderId: razorpay_order_id },
+      { paymentStatus: "completed" }
+    );
     res.status(200).json({ message: "Payment verified successfully" });
   } else {
     res.status(400).json({ message: "Invalid signature" });
